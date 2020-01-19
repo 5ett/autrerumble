@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='rum.css')}}">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Varumble</title>
+    {% endif %}
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <header class="zheader">
+        <div class="container">
+            <nav class="main-nav">
+                    {% if current_user.is_authenticated %}
+                        <div class="user-nav">
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                            <a href="{{ url_for('requests') }}">Requests</a>
+                            <a href="{{ url_for('signup') }}">Add User</a>
+                            <a href="{{ url_for('usaccnt') }}"><img src="{{ user_prof }}" class="prof-photo" alt=""></a>
+                        </div>
+                    {% else %}
+                        <div class="left-nav">
+                            <a href="{{ url_for('index') }}">Home</a>
+                            <a href="{{ url_for('about') }}">About Us</a>
+                            <a href="{{ url_for('serv') }}">Services</a>
+                        </div>
+                        <div class="right-nav">
+                            <a href="{{ url_for('login') }}">Login</a>
+                        </div>
+                {% endif %}
+                <hr>
+            </nav>
+        </div>    
+    </header>
+    <main>
+        <div class="myalert">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages  %}
+                    {% for category, message in messages %}
+                        <div class="{{category}}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        {% block content %} {% endblock %}
+    </main>
+    <!-- <footer class="container">
+        <div class="futclab">
+            <small>copyright &copy;2019 A-max Team</small>
+        </div> 
+    </footer> -->
+</body>
+</html>

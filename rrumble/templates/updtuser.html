@@ -1,0 +1,83 @@
+{% extends 'grounds.html' %}
+
+{% block head %} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST" class="formblock-req" enctype="multipart/form-data">
+        
+        <div class="container">
+            <div class="viewprof">
+                <img src="{{ user_prof }}" alt="user_profile_photo">
+                <p>{{ current_user.name }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <fieldset class="form-fs">
+
+                {{ form.hidden_tag() }}
+                <div class="formm">
+                    <p>{{form.post.label(class='form-l')}}</p>
+                    <div class="formz">
+                    {{ form.post(class='form-f') }}
+                    </div>
+                </div>
+
+                <div class="formm">
+                    <p>{{form.email.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {% if form.email.errors %}
+                            {{form.email(class='form-f-error')}}
+                                {% for error in form.email.errors %}
+                                    <div class="error-msg"><span>{{error}}</span></div>
+                                {% endfor %}
+                        {% else %}
+                            {{form.email(class='form-f')}}
+                        {% endif %}
+                    </div>
+                </div>
+                
+
+                <div class="formm">
+                    <p>{{form.expertise.label(class='form-l')}}</p>
+                    <div class="formz">
+                    {{ form.expertise(class='form-f') }}
+                    </div>
+                </div>
+
+                <div class="formm">
+                    <p>{{form.durat.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {% if form.durat.errors %}
+                            {{ form.durat(class="form-f-error") }}
+                            {% for error in form.durat.errors %}
+                                <div class="error-msg"><span>{{error}}</span></div>
+                            {% endfor %}
+                        {% else %}
+                        {{ form.durat(class='form-f') }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="formm">
+                    <p>{{ form.photo.label(class='form-l') }}</p>
+                    <div class="formz">
+                            {{form.photo(class='form-f')}}
+                            {% if form.photo.errors %} 
+                                {% for error in form.photo.errors %}
+                                    <div class="error-msg"><span>{{error}}</span></div>
+                                {% endfor %}
+                            {% endif %} 
+                    </div>
+                </div>
+
+                <div class="form-sub">
+                    {{form.submit(class='form-s')}}
+                </div>
+            </fieldset>
+        </div>    
+    </form>
+</div>
+{% endblock %}
+

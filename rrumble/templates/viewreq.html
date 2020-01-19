@@ -1,0 +1,24 @@
+{% extends 'grounds.html' %}
+
+{% block head %} {% endblock %}
+
+{% block content %} 
+    <div class="container">
+        <div class="req-item">
+
+            <legend class="leg">{{ request.subject }} <hr></legend>
+            <div>
+                from: {{ request.guest_name(class='form-f') }}
+                <p><small class="textmutd">{{ request.guest_email }}</small></p>
+                <p><small class="textmutd">{{ request.guest_tel }}</small></p>
+
+            </div>
+            <div>
+                made on: {{ request.date(class='form-f') }}
+            </div>
+            <div>
+                message: {{ request.message(class='form-f-t') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

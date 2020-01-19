@@ -1,0 +1,24 @@
+{% extends 'grounds.html' %}
+
+{% block head %} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <!-- <legend class="leg">Profile</legend> -->
+        <div class="viewacc">
+            <div class="container">
+                <div class="viewprof0">
+                    <img src="{{ user_prof }}" alt="user_profile_photo">
+                    <p>{{ current_user.name }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="acc-content">
+                <p>Post:       {{ current_user.post }}</p>
+                <p>Expertise:      {{ current_user.expertise }}</p>
+                <p>Duration of experience:      {{ current_user.durat }} years</p>
+            </div>
+            <a href="{{ url_for('updtuser') }}"><input type="button" value="update profile" class="form-s"></a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 body{
     margin: 0;
-    background-image: url(media/grd2.jpg);
-    background-size: 1366px 768px;
+    /* background-image: url(media/grd2.jpg); */
+    /* background-size: 1366px 768px; */
     background-position: fixed;
     font-family: 'coolkid';
     font-size: 13;
@@ -12,14 +12,34 @@ body{
     src: url(media/psr.ttf);
 }
 
+@font-face{
+    font-family: 'coolbud';
+    src: url(media/ame.ttf);
+}
+
+@font-face{
+    font-family: 'coolhelv';
+    src: url(media/helv.ttf);
+}
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .zheader{
     width: 70%;
-    color: white;
+    color:rgb(175, 175, 175);
     font-weight: 500;
     margin-left: 239px;
     margin-top: 50px;
     margin-bottom: 100px;
     font-size: 17;
+}
+
+.zheader hr{
+    color: rgb(175, 175, 175);
 }
 
 .main-nav div{
@@ -28,7 +48,7 @@ body{
 
 .main-nav a{
     text-decoration: none;
-    color: white;
+    color: rgb(230, 144, 222);
     border-style: solid;
     border-width: 0;
 }
@@ -61,17 +81,20 @@ body{
 }
 
 .right-nav a:hover{
-    color: white;
+    color: rgb(43, 42, 42);
 }
 
 .user-nav{
     padding-left: 300px;
     font-size: 17;
-    color: white;
+}
+
+.user-nav a{
+    color: rgb(175, 175, 175);
 }
 
 .user-nav a:hover{
-    color: rgb(192, 192, 192);
+    color: rgb(66, 66, 66);
 }
 
 .user-nav a{
@@ -84,6 +107,41 @@ body{
     width: 28px;
     padding-left: 0;
     margin-bottom: 0;
+}
+
+#home-content{
+    color: black;
+    font-size: 14;
+    width: 70%;
+    margin: auto;
+}
+
+#home-content legend{
+    font-size: 20;
+    font-weight: bold;
+    margin-left: 800px;
+    margin-bottom: 13px;
+}
+
+.hc1{
+    border: solid 2.2px rgb(230, 144, 222);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    margin: 5px 5px 15px 0;
+    width: 50%;
+    line-height: 1.5em;
+}
+
+.hc2{
+    border: solid 2.2px rgb(230, 144, 222);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    margin-left: 400px;
+    margin-bottom: 10px;
+    width: 50%;
+    line-height: 1.5em;
 }
 
 .viewacc{
@@ -114,6 +172,11 @@ body{
     height: 60px;
     width: 78.4px;
     /* margin-bottom: 200px; */
+}
+
+.back{
+    background-image: url(media/bb.jpg);
+    /* background-size: ; */
 }
 
 .viewprof, .viewprof0{
@@ -182,7 +245,8 @@ body{
 } */
 
 .form-l{
-    color: rgb(221, 219, 219);
+    color: rgb(88, 88, 88);
+    font-size: 14;
 }
 
 .form-f{
@@ -197,6 +261,7 @@ body{
     width: 90%;
     line-height: 1.8;
     font-family: 'coolkid';
+    font-size: 14;
 }
 
 .form-f2{
@@ -211,6 +276,7 @@ body{
     width: 55%;
     line-height: 1.8;
     font-family: 'coolkid';
+    font-size: 14;
 }
 
 #photo{
@@ -239,6 +305,7 @@ body{
     width: 50%;
     line-height: 1.8;
     font-family: 'coolkid';
+    font-size: 14;
 }
 
 .form-f-t{
@@ -425,4 +492,14 @@ body{
 
 footer{
     position: bottom;
+    margin-top: 50px;
+    padding: 20px;
+    font-family: monospace;
+}
+
+.futclab{
+    width: 70%;
+    margin: 15%;
+    font-family: 'coolbud';
+    text-align: center;
 }

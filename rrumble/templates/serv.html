@@ -2,54 +2,57 @@
 
 {% block head %} {% endblock %}
 
-{% block content %} 
-<div class="container">
-    <form action="" method="POST" class="formblock-req">
-        <legend class="leg">Got something in mind?<hr></legend class="leg">
-        <fieldset class="form-fs">
-
-            {{ form.hidden_tag() }}
-            <div class="formm">
-                <p>{{form.name.label(class='form-l')}}</p>
-                <div class="formz">
-                    {{form.name(class='form-f-req')}}
-                </div>
-            </div>
-            <div class="formm">
-                <p>{{form.email.label(class='form-l')}}</p>
-                <div class="formz">
-                    {% if form.email.errors %}
-                        {{form.email(class='form-f-error')}}
-                            {% for error in form.email.errors %}
-                                <div class="error-msg"><span>{{error}}</span></div>
-                            {% endfor %}
-                    {% else %}
-                        {{form.email(class='form-f-req')}}
-                    {% endif %}
-                </div>
+{% block content %}
+<div class="back">
+    <div class="container">
+        <form action="" method="POST" class="formblock-req">
+            <legend class="leg">Got something in mind?<hr></legend class="leg">
+            <fieldset class="form-fs">
+    
+                {{ form.hidden_tag() }}
                 <div class="formm">
-                    <p>{{form.telephone.label(class='form-l')}}</p>
+                    <p>{{form.name.label(class='form-l')}}</p>
                     <div class="formz">
-                        {{form.telephone(class='form-f-req')}}
+                        {{form.name(class='form-f-req')}}
                     </div>
                 </div>
-            </div>
-            <div class="formm">
-                <p>{{form.subject.label(class='form-l')}}</p>
-                <div class="formz">
-                    {{form.subject(class='form-f-req')}}
+                <div class="formm">
+                    <p>{{form.email.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {% if form.email.errors %}
+                            {{form.email(class='form-f-error')}}
+                                {% for error in form.email.errors %}
+                                    <div class="error-msg"><span>{{error}}</span></div>
+                                {% endfor %}
+                        {% else %}
+                            {{form.email(class='form-f-req')}}
+                        {% endif %}
+                    </div>
+                    <div class="formm">
+                        <p>{{form.telephone.label(class='form-l')}}</p>
+                        <div class="formz">
+                            {{form.telephone(class='form-f-req')}}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="formm">
-                <p>{{form.text.label(class='form-l')}}</p>
-                <div class="formz">
-                    {{form.text(class='form-f-t')}}
+                <div class="formm">
+                    <p>{{form.subject.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {{form.subject(class='form-f-req')}}
+                    </div>
                 </div>
-            </div>
-            <div class="form-sub">
-                {{form.submit(class='form-s-req')}}
-            </div>
-        </fieldset>
-    </form>
-</div>
+                <div class="formm">
+                    <p>{{form.text.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {{form.text(class='form-f-t')}}
+                    </div>
+                </div>
+                <div class="form-sub">
+                    {{form.submit(class='form-s-req')}}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div> 
+
 {% endblock %}

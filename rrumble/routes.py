@@ -8,7 +8,8 @@ from rrumble.otherfuncs import photo_update
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    user_prof = url_for('static', filename='media/profphot/'+ current_user.prof_photo)
+    return render_template('index.html', user_prof=user_prof)
 
 
 

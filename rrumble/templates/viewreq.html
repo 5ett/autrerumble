@@ -8,16 +8,16 @@
 
             <legend class="leg">{{ request.subject }} <hr></legend>
             <div>
-                from: {{ request.guest_name(class='form-f') }}
+                <p class="form-f"></p> from: {{ request.guest_name }}
                 <p><small class="textmutd">{{ request.guest_email }}</small></p>
                 <p><small class="textmutd">{{ request.guest_tel }}</small></p>
 
             </div>
-            <div>
-                made on: {{ request.date(class='form-f') }}
+            <div class='form-f'>
+                made on: {{ request.date.strftime('%d-%m-%Y')}}
             </div>
-            <div>
-                message: {{ request.message(class='form-f-t') }}
+            <div class='' style="text-align: left;">
+                message: {{ request.message}}
             </div>
         </div>
     </div>

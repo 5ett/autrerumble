@@ -2,14 +2,13 @@ from flask import url_for, render_template, redirect, flash, request
 from rrumble import app, db, guard, osyrus
 from rrumble.forms import SignUp, Login, MakeRequest, PicMod, UpdateProf
 from rrumble.models import User, Task
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, current_user, login_required
 from rrumble.otherfuncs import photo_update
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    user_prof = url_for('static', filename='media/profphot/'+ current_user.prof_photo)
-    return render_template('index.html', user_prof=user_prof)
+    return render_template('index.html')
 
 
 
@@ -98,13 +97,14 @@ def logout():
 
 @app.route('/requests', methods=['GET', 'POST'])
 def requests():
+    all_reqs = Task.query.order_by(Task.date).all()
     user_prof = url_for('static', filename='media/profphot/'+ current_user.prof_photo)
-    return render_template('requests.html', user_prof=user_prof)
+    return render_template('requests.html', user_prof=user_prof, all_reqs=all_reqs, title='Requests')
 
 
-@app.route('/viewreq/(int:id)', methods=['GET', 'POST'])
-def viewreq(id):
-    request = Task.query.get_or_404(id)
+@app.route('/viewreq/<int:req_id>', methods=['GET', 'POST'])
+def viewreq(req_id):
+    request = Task.query.get_or_404(req_id)
     user_prof = url_for('static', filename='media/profphot/'+ current_user.prof_photo)
     return render_template('viewreq.html', request=request, user_prof=user_prof)
 

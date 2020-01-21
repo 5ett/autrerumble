@@ -3,16 +3,20 @@
 {% block head %} {% endblock %}
 
 {% block content %} 
-    <!-- <div class="container">
+    <div class="container">
         {% if all_reqs %}
             {% for req in all_reqs %}
                 <div class="req-fv">
-                    {{ req.guest_name (class='req-it')}}
-                    <p><small>on {{ req.date(class='req-dat') }}</small></p>
-                    <a href="{{ url_for('viewtask(id)') }}"><button type="submit" class="form-s">view task</button></a>
+                    <p class='req-it'>{{ req.guest_name}}</p>
+                    <p class='req-dat'><small>on {{ req.date.strftime('%Y-%m-%d') }}</small></p>
+                    <p>{{ req.subject }}</p>
+                    <a href="{{ url_for('viewreq', req_id=req.id) }}"><button type="submit" class="form-s-req2">view task</button></a>
                 </div>    
             {% endfor %}
         {% else %}
-            <legend class="leg">No Pending Requests<hr></legend>
-        {% endif %} -->
+        <div class="req-fv">
+            <h2 style="width: 30%; text-align: center;">No Pending Requests<hr></h2>
+        </div>
+        {% endif %}
+    </div>
 {% endblock %}

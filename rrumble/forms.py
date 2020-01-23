@@ -27,6 +27,7 @@ class MakeRequest(FlaskForm):
     telephone = IntegerField('phone number', validators=[DataRequired()])
     subject = StringField('subject', validators=[DataRequired()])
     text = TextAreaField('message', validators=[Length(max=250)])
+    file = FileField('attachment', validators=[FileAllowed(['jpg', 'png', 'pdf', 'doc', 'docx', 'xls'])])
     submit = SubmitField('submit')
 
     def validate_email(self, email):

@@ -3,7 +3,7 @@ from rrumble import app, db, guard, osyrus
 from rrumble.forms import SignUp, Login, MakeRequest, PicMod, UpdateProf
 from rrumble.models import User, Task
 from flask_login import login_user, logout_user, current_user, login_required
-from rrumble.otherfuncs import photo_update
+from rrumble.otherfuncs import photo_update, send_mail
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -104,8 +104,19 @@ def requests():
 
 @app.route('/viewreq/<int:req_id>', methods=['GET', 'POST'])
 def viewreq(req_id):
+    form = MakeRequest()
+    if form.validate_on_submit():
+        send_mail(form.subject.data, form.email.data, form.text.data, form.file.data)
+        flash('the email has been sent', 'info')
+    else:
+        flash('the email was not sent', 'danger')
+        # try:
+        #     send_mail(form.subject.data, form.email.data, form.text.data, form.file.data)
+        #     flash('the email has been sent', 'info')
+        # except:
+        #     flash('the email was not sent', 'danger')
     request = Task.query.get_or_404(req_id)
     user_prof = url_for('static', filename='media/profphot/'+ current_user.prof_photo)
-    return render_template('viewreq.html', request=request, user_prof=user_prof)
+    return render_template('viewreq.html', request=request, user_prof=user_prof, title=request.subject, form=form)
 
 

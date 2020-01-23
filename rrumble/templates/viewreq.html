@@ -4,21 +4,71 @@
 
 {% block content %} 
     <div class="container">
-        <div class="req-item">
+        <div>
+            <button class="form-s" type="submit"><a href="{{ url_for('requests') }}"><h2>back</h2></a></button
+        </div>
+        
+            <div class="req-item">
 
             <legend class="leg">{{ request.subject }} <hr></legend>
             <div>
-                <p class="form-f"></p> from: {{ request.guest_name }}
+                <p class="form-f">from: {{ request.guest_name }}</p>  
                 <p><small class="textmutd">{{ request.guest_email }}</small></p>
                 <p><small class="textmutd">{{ request.guest_tel }}</small></p>
 
             </div>
             <div class='form-f'>
-                made on: {{ request.date.strftime('%d-%m-%Y')}}
+                 made on: {{ request.date.strftime('%d-%m-%Y')}} <br>
+                 <br> subject: {{ request.subject }}
             </div>
-            <div class='' style="text-align: left;">
-                message: {{ request.message}}
+            <div class='form-f-t' style="text-align: center; font-size: 15;">
+               message: <p>{{ request.guest_msg}}</p>
             </div>
         </div>
+        <form action="" method="POST" class="formblock-req" enctype="multipart/form-data">
+            <legend class="leg">Reply<hr></legend class="leg">
+            <fieldset class="form-fs">
+    
+                {{ form.hidden_tag() }}
+                <div class="formm">
+                    <p>{{form.email.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {% if form.email.errors %}
+                            {{form.email(class='form-f-error')}}
+                                {% for error in form.email.errors %}
+                                    <div class="error-msg"><span>{{error}}</span></div>
+                                {% endfor %}
+                        {% else %}
+                            {{form.email(class='form-f-req')}}
+                        {% endif %}
+                    </div>
+                <div class="formm">
+                    <p>{{form.subject.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {{form.subject(class='form-f-req')}}
+                    </div>
+                </div>
+                <div class="formm">
+                    <p>{{form.text.label(class='form-l')}}</p>
+                    <div class="formz">
+                        {{form.text(class='form-f-t')}}
+                    </div>
+                </div>
+                <div class="formm">
+                    <p>{{ form.file.label(class='form-l') }}</p>
+                    <div class="formz">
+                            {{form.file(class='form-f')}}
+                            {% if form.file.errors %} 
+                                {% for error in form.file.errors %}
+                                    <div class="error-msg"><span>{{error}}</span></div>
+                                {% endfor %}
+                            {% endif %} 
+                    </div>
+                </div>
+                <div class="form-sub">
+                    {{form.submit(class='form-s-req')}}
+                </div>
+            </fieldset>
+        </form>
     </div>
 {% endblock %}

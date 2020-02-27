@@ -10,7 +10,6 @@
 
                 {{ form.hidden_tag() }}
                 <div class="formm">
-                    <p>{{form.email.label(class='form-l')}}</p>
                     <div class="formz">
                         {% if form.email.errors %}
                             {{form.email(class='form-f-error')}}
@@ -18,14 +17,14 @@
                                     <div class="error-msg"><span>{{error}}</span></div>
                                 {% endfor %}
                         {% else %}
-                            {{form.email(class='form-f')}}
+                            {{form.email(class='form-f', placeholder='email')}}
                         {% endif %}
                     </div>
                 </div>
                 <div class="formm">
-                    <p>{{form.password.label(class='form-l')}}</p>
+                    <!-- <p>{{form.password.label(class='form-l')}}</p> -->
                     <div class="formz">
-                        {{form.password(class='form-f')}}
+                        {{form.password(class='form-f', placeholder='password')}}
                 </div>
                 </div>
                 <div class="form-sub">

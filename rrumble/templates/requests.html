@@ -7,7 +7,7 @@
         {% if all_reqs %}
             {% for req in all_reqs %}
                 <div class="req-fv">
-                    <p class='req-it'>{{ req.guest_name}}</p>
+                    <h4 class='req-it'><a href="{{ url_for('viewreq', req_id=req.id) }}">{{ req.guest_name}}</a></h4>
                     <p class='req-dat'><small>on {{ req.date.strftime('%Y-%m-%d') }}</small></p>
                     <p>{{ req.subject }}</p>
                     <a href="{{ url_for('viewreq', req_id=req.id) }}"><button type="submit" class="form-s-req2">view task</button></a>

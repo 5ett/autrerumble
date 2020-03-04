@@ -51,7 +51,7 @@ body{
 }
 
 .right-nav{
-    margin-left: 220px;
+    margin-left: 200px;
 
 }
 
@@ -65,7 +65,7 @@ body{
 }
 
 .user-nav{
-    padding-left: 340px;
+    padding-left: 290px;
     font-size: 17;
     color: white;
 }
@@ -234,6 +234,7 @@ body{
     border-radius: 5px;
     margin: auto;
     margin-top: 20px;
+    margin-bottom:5.5px;
     padding-left: 3px;
     width: 90%;
     line-height: 1.8;
@@ -365,6 +366,11 @@ body{
     line-height: 1.3em;
 }
 
+.form-s a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .form-s-req{
     color: rgb(216, 216, 216);
     border-style: unset;
@@ -380,13 +386,29 @@ body{
     padding: 3px 13px 3px 13px;
     line-height: 1.3em;
 }
-.form-s:hover, .form-s-req:hover{
-    color: white;
-    border-width: 1px;
-    background-color: rgb(80, 23, 77);
-    border-color: transparent;
 
+.form-s-req2{
+    color: rgb(216, 216, 216);
+    border-style: unset;
+    border-width: thin;
+    border-radius: 6px;
+    border-color: #3D113B;
+    box-shadow: unset;
+    /* margin-left: 80px; */
+    margin-top: 5px;
+    background-color: #3D113B;
+    font-family: 'coolkid';
+    padding: 3px 13px 3px 13px;
+    line-height: 1.3em;
 }
+.form-s:hover, .form-s-req:hover, .form-s-req2:hover{
+    color: #3D113B;
+    border-width: 1px;
+    background-color: white;
+    border-color: transparent;
+    font-weight: bolder;
+}
+
 
 .textmutd{
     color: rgb(180, 180, 180);
@@ -433,27 +455,47 @@ body{
 .req-item{
     width:50%;
     margin: auto;
+    margin-bottom: 50px;
     border-style: solid;
     border-color: #C64FBD;
     border-radius: 9px;
-    padding: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.req-item p{
+    font-size: 15;
+    color: inherit;
 }
 
 .req-fv{
-    margin: auto;
+    margin: 20px 20px;
+    border-width: thin;
     border-style: solid;
-    border-color: #C64FBD;
+    border-color: transparent;
+    border-bottom: thin;
+    border-color: #C64FBD; 
     border-radius: 9px;
-    padding: 50px;
+    padding: 9px;
+    width: 30%;
+    margin-bottom: 20px;
+    margin-right: 5px;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .req-it{
-    width:fit-content;
+    width:60%;
     margin: auto;
+    text-align: center;
     border-style: solid;
     border-color: #C64FBD;
     border-radius: 13px;
-    padding: 50px;
+    padding: 15px;
+    font-family: 'coolbud';
+    font-size: 15;
+    color: white;
 }
 
 .req-it{
@@ -465,11 +507,29 @@ body{
     background-color: white;
 }
 
+.req-fv p{
+    font-size: 11.3;
+    color: white;
+}
+
+.req-fv a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .req-dat{
     text-decoration: none;
     color: #C64FBD;
+    text-align: center;
 }
 
 footer{
     position: bottom;
+}
+
+.futclab{
+    width: 70%;
+    margin: 15%;
+    font-family: 'coolbud';
+    text-align: center;
 }

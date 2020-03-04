@@ -5,22 +5,22 @@
 {% block content %} 
     <div class="container">
         <div>
-            <button class="form-s" type="submit"><a href="{{ url_for('requests') }}"><h2>back</h2></a></button
+            <button class="form-s" type="submit"><a href="{{ url_for('requests') }}">back</a></button
         </div>
         
             <div class="req-item">
 
-            <legend class="leg">{{ request.subject }} <hr></legend>
-            <div>
-                <p class="form-f">from: {{ request.guest_name }}</p>  
+            <legend class="leg">request #{{ request.id }} <hr></legend>
+            <div class="form-f">
+                <p >from: {{ request.guest_name }}</p>  
                 <p><small class="textmutd">{{ request.guest_email }}</small></p>
                 <p><small class="textmutd">{{ request.guest_tel }}</small></p>
-
+                <div>
+                    made on: {{ request.date.strftime('%d-%m-%Y')}} <br>
+                    <br> subject: {{ request.subject }}
+               </div>
             </div>
-            <div class='form-f'>
-                 made on: {{ request.date.strftime('%d-%m-%Y')}} <br>
-                 <br> subject: {{ request.subject }}
-            </div>
+            
             <div class='form-f-t' style="text-align: center; font-size: 15;">
                message: <p>{{ request.guest_msg}}</p>
             </div>

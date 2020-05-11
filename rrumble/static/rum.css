@@ -1,8 +1,7 @@
 body{
     margin: 0;
-    background-image: url(media/grd2.jpg);
-    background-size: 1366px 768px;
-    background-position: fixed;
+    background: url(media/grd2.jpg) fixed no-repeat;
+    background-size: cover;
     font-family: 'coolkid';
     font-size: 13;
 }
@@ -48,10 +47,12 @@ body{
 .left-nav a:hover{
     background-color: #C64FBD;
     color: whitesmoke;
+    transition: .3s;
 }
 
 .right-nav{
     margin-left: 200px;
+    transition: .5s;
 
 }
 
@@ -474,7 +475,7 @@ body{
     border-style: solid;
     border-color: transparent;
     border-bottom: thin;
-    border-color: #C64FBD; 
+    border-color: #C64FBD;
     border-radius: 9px;
     padding: 9px;
     width: 30%;

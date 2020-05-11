@@ -7,8 +7,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '45d24dccce68f56a9c81270a0c91bfa4ad141d'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sanzen.db'
 db = SQLAlchemy(app)
-guard=Bcrypt(app)
-osyrus=LoginManager(app)
+guard = Bcrypt(app)
+osyrus = LoginManager(app)
 
 from rrumble import routes
-
